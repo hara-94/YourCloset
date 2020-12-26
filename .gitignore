@@ -1,0 +1,10 @@
+.DS_Store
+CHANGELOG.md
+CONTRIBUTING.md
+LICENSE
+MAKEFILE
+Package.resolved
+Package.resources
+Package.swift
+README.md
+.build/

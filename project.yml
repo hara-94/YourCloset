@@ -1,0 +1,23 @@
+name: YourCloset
+options:
+  bundleIdPrefix: hikaru.hara
+  developmentLanguage: ja
+  deploymentTarget:
+    iOS: 13.0
+  xcodeVersion: "12.2"
+targets:
+  YourCloset:
+    type: application
+    platform: iOS
+    sources:
+      - YourCloset
+  YourClosetTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - YourClosetTests
+  YourClosetUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - YourClosetUITests
