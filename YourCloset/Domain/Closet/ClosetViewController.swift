@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import UIComponent
 
 protocol ClosetViewProtocol: AnyObject {
     func remove(with id: String)
 }
 
-final class ClosetViewController: UIViewController, ClosetViewProtocol{
+final class ClosetViewController: AppBaseViewController, ClosetViewProtocol{
     var presenter: ClosetPresenterProtocol!
     
     override func loadView() {

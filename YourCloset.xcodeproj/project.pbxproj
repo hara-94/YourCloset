@@ -13,6 +13,7 @@
 		15D31F7CCCF227564889B779 /* YourClosetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BA2CCBE4A495593E202B9D /* YourClosetUITests.swift */; };
 		22DC2F44F860E9F442FE0483 /* ClosetRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B13EC9FCA5BF45917004BF /* ClosetRouter.swift */; };
 		2F382468095C9616DC20BCAE /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE543386D1DFA08668ECB7 /* Layout.swift */; };
+		32953157259860A900901C4A /* AppBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32953156259860A900901C4A /* AppBaseViewController.swift */; };
 		39F1E8ACE053FBE86BD5C4F1 /* ClosetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E21868336E2EE17FB070BB /* ClosetPresenter.swift */; };
 		57DA38842B62EAD540BE74FD /* Util.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D096F263469D59EB07C76FD9 /* Util.framework */; };
 		57DE25F616AA31C847129945 /* UIComponent.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BC0A249C19A8C017455B83A4 /* UIComponent.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -69,8 +70,9 @@
 /* Begin PBXFileReference section */
 		0BC806837FD9DCD1A4B75AE3 /* ClosetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetViewController.swift; sourceTree = "<group>"; };
 		0E07110F823DB991D5985DB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		135734CF8501A36DC614D4CF /* YourCloset.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = YourCloset.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		135734CF8501A36DC614D4CF /* YourCloset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourCloset.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CAB28DB6D229F6303557978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		32953156259860A900901C4A /* AppBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBaseViewController.swift; sourceTree = "<group>"; };
 		33890B15F693B9F3EE5E129E /* YourClosetUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = YourClosetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37BA01791001B84B17759152 /* UIComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIComponent.h; sourceTree = "<group>"; };
 		64B43F1DCA9A74C6ADADDF8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				0E07110F823DB991D5985DB0 /* Info.plist */,
 				37BA01791001B84B17759152 /* UIComponent.h */,
+				32953156259860A900901C4A /* AppBaseViewController.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -336,6 +339,9 @@
 			attributes = {
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
+					F7049DDBD471E87A52B6CC04 = {
+						LastSwiftMigration = 1220;
+					};
 				};
 			};
 			buildConfigurationList = 8E2B2C048FD90A6D2D75647D /* Build configuration list for PBXProject "YourCloset" */;
@@ -413,6 +419,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32953157259860A900901C4A /* AppBaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +497,7 @@
 		1A2FEB59328C1C6EC4DAFD2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -505,6 +513,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = hikaru.hara.UIComponent;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -513,6 +523,7 @@
 		586BA963790B92C9057FA1CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = YourCloset/Info.plist;
@@ -640,6 +651,7 @@
 		9CC341D9F2F2AEE4DC315B13 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -655,6 +667,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = hikaru.hara.UIComponent;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -742,6 +755,7 @@
 		DF60696A76DD4324596A3BEA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = YourCloset/Info.plist;
