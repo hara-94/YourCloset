@@ -12,7 +12,9 @@
 		1376DCE546A1D26EDDA5D1DD /* Util.h in Headers */ = {isa = PBXBuildFile; fileRef = 822D6F63F0D575E653A24908 /* Util.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		15D31F7CCCF227564889B779 /* YourClosetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BA2CCBE4A495593E202B9D /* YourClosetUITests.swift */; };
 		2F382468095C9616DC20BCAE /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE543386D1DFA08668ECB7 /* Layout.swift */; };
-		59B705BDDCCD25DCBD70F77D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416DFD155F6A1F321AE501F5 /* ViewController.swift */; };
+		32953117259850ED00901C4A /* ClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32953116259850ED00901C4A /* ClosetViewController.swift */; };
+		3295311C2598510400901C4A /* ClosetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3295311B2598510400901C4A /* ClosetPresenter.swift */; };
+		329531212598510F00901C4A /* ClosetRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329531202598510F00901C4A /* ClosetRouter.swift */; };
 		6337970A5CB3F20FEBC3BEE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3A97622A8D7D399577FC636 /* Assets.xcassets */; };
 		7277CDFEDAD3D05394CB58C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9411ABA73AEA6A03F67ADB0 /* LaunchScreen.storyboard */; };
 		93FF87A5ECDE5931A2784D05 /* Util.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D096F263469D59EB07C76FD9 /* Util.framework */; };
@@ -48,8 +50,10 @@
 /* Begin PBXFileReference section */
 		135734CF8501A36DC614D4CF /* YourCloset.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = YourCloset.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CAB28DB6D229F6303557978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		32953116259850ED00901C4A /* ClosetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetViewController.swift; sourceTree = "<group>"; };
+		3295311B2598510400901C4A /* ClosetPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetPresenter.swift; sourceTree = "<group>"; };
+		329531202598510F00901C4A /* ClosetRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetRouter.swift; sourceTree = "<group>"; };
 		33890B15F693B9F3EE5E129E /* YourClosetUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = YourClosetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		416DFD155F6A1F321AE501F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		64B43F1DCA9A74C6ADADDF8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		686B99EB47E07433618C890E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		822D6F63F0D575E653A24908 /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
@@ -97,6 +101,24 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		3295310C2598485300901C4A /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				329531152598487D00901C4A /* Closet */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		329531152598487D00901C4A /* Closet */ = {
+			isa = PBXGroup;
+			children = (
+				32953116259850ED00901C4A /* ClosetViewController.swift */,
+				3295311B2598510400901C4A /* ClosetPresenter.swift */,
+				329531202598510F00901C4A /* ClosetRouter.swift */,
+			);
+			path = Closet;
+			sourceTree = "<group>";
+		};
 		3738F3D3B8B9A451102B51AF /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,12 +150,12 @@
 		C5B1A87323169267FB795AC7 /* YourCloset */ = {
 			isa = PBXGroup;
 			children = (
+				3295310C2598485300901C4A /* Domain */,
 				F0F55FCF05F6107D9CA6D0C2 /* AppDelegate.swift */,
 				A3A97622A8D7D399577FC636 /* Assets.xcassets */,
 				64B43F1DCA9A74C6ADADDF8C /* Info.plist */,
 				B9411ABA73AEA6A03F67ADB0 /* LaunchScreen.storyboard */,
 				E946316229C38544B5D40203 /* SceneDelegate.swift */,
-				416DFD155F6A1F321AE501F5 /* ViewController.swift */,
 			);
 			path = YourCloset;
 			sourceTree = "<group>";
@@ -330,7 +352,9 @@
 			files = (
 				FDDAFE0C0284BF932172C42B /* AppDelegate.swift in Sources */,
 				F7F5B101352EA3E227DA2266 /* SceneDelegate.swift in Sources */,
-				59B705BDDCCD25DCBD70F77D /* ViewController.swift in Sources */,
+				329531212598510F00901C4A /* ClosetRouter.swift in Sources */,
+				32953117259850ED00901C4A /* ClosetViewController.swift in Sources */,
+				3295311C2598510400901C4A /* ClosetPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
