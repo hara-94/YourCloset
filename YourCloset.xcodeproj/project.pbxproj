@@ -18,7 +18,6 @@
 		3295316C2598B4E100901C4A /* AppCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3295316B2598B4E100901C4A /* AppCollectionViewDelegate.swift */; };
 		329531722598B57E00901C4A /* AppCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329531712598B57E00901C4A /* AppCollectionViewDataSource.swift */; };
 		3295318225996FA000901C4A /* SectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3295318125996FA000901C4A /* SectionController.swift */; };
-		329531952599842B00901C4A /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329531942599842B00901C4A /* Module.swift */; };
 		3295319B2599888900901C4A /* ModuleSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3295319A2599888900901C4A /* ModuleSectionController.swift */; };
 		329531AB25999EAA00901C4A /* ClosetModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329531AA25999EAA00901C4A /* ClosetModule.swift */; };
 		329531B625999EE600901C4A /* ClosetSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329531B525999EE600901C4A /* ClosetSectionController.swift */; };
@@ -31,6 +30,7 @@
 		93FF87A5ECDE5931A2784D05 /* Util.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D096F263469D59EB07C76FD9 /* Util.framework */; };
 		AF54C25BB215AF6AAF889446 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D4A643BD08AA89CD90B77F /* UIView+.swift */; };
 		B9BE81A9F30419FA529D42BD /* UIComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 37BA01791001B84B17759152 /* UIComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C78E6390259A275100C9B867 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78E638F259A275100C9B867 /* Module.swift */; };
 		EE0717DC95EFB07066D055B8 /* UIComponent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0A249C19A8C017455B83A4 /* UIComponent.framework */; };
 		F7F5B101352EA3E227DA2266 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946316229C38544B5D40203 /* SceneDelegate.swift */; };
 		FDDAFE0C0284BF932172C42B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F55FCF05F6107D9CA6D0C2 /* AppDelegate.swift */; };
@@ -85,7 +85,6 @@
 		3295316B2598B4E100901C4A /* AppCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		329531712598B57E00901C4A /* AppCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		3295318125996FA000901C4A /* SectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionController.swift; sourceTree = "<group>"; };
-		329531942599842B00901C4A /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		3295319A2599888900901C4A /* ModuleSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleSectionController.swift; sourceTree = "<group>"; };
 		329531AA25999EAA00901C4A /* ClosetModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetModule.swift; sourceTree = "<group>"; };
 		329531B525999EE600901C4A /* ClosetSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetSectionController.swift; sourceTree = "<group>"; };
@@ -102,6 +101,7 @@
 		A7D4A643BD08AA89CD90B77F /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		BC0A249C19A8C017455B83A4 /* UIComponent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIComponent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE656A3C3F0B275328054B5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C78E638F259A275100C9B867 /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		D096F263469D59EB07C76FD9 /* Util.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Util.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B13EC9FCA5BF45917004BF /* ClosetRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetRouter.swift; sourceTree = "<group>"; };
 		E4BA2CCBE4A495593E202B9D /* YourClosetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourClosetUITests.swift; sourceTree = "<group>"; };
@@ -173,8 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				3295318125996FA000901C4A /* SectionController.swift */,
-				329531942599842B00901C4A /* Module.swift */,
 				3295319A2599888900901C4A /* ModuleSectionController.swift */,
+				C78E638F259A275100C9B867 /* Module.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -494,12 +494,12 @@
 				3295319B2599888900901C4A /* ModuleSectionController.swift in Sources */,
 				3295316C2598B4E100901C4A /* AppCollectionViewDelegate.swift in Sources */,
 				3295318225996FA000901C4A /* SectionController.swift in Sources */,
+				C78E6390259A275100C9B867 /* Module.swift in Sources */,
 				329531722598B57E00901C4A /* AppCollectionViewDataSource.swift in Sources */,
 				329531622598B4B400901C4A /* AppCollectionView.swift in Sources */,
 				329531AB25999EAA00901C4A /* ClosetModule.swift in Sources */,
 				32953157259860A900901C4A /* AppBaseViewController.swift in Sources */,
 				329531B625999EE600901C4A /* ClosetSectionController.swift in Sources */,
-				329531952599842B00901C4A /* Module.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

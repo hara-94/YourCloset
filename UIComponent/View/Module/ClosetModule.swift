@@ -7,8 +7,14 @@
 
 import UIKit
 
-public class ClosetModule: ModuleCell<String> {
-    public override func render(_ obj: ModuleCell<String>.ContentType?) {
+public class ClosetModule: UICollectionViewCell, Module {
+    public typealias ContentType = String
+    
+    public static func size(at row: Int, in collectionView: UICollectionView) -> CGSize {
+        .init(width: collectionView.bounds.width, height: 100)
+    }
+    
+    public func render(_ obj: String?) {
         contentView.backgroundColor = .red
     }
 }

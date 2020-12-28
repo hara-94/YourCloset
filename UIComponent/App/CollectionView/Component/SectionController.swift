@@ -20,8 +20,8 @@ open class SectionController {
         layoutType.setup(itemSpacing: &itemSpacing, insets: &insets)
     }
     
-    open func size(for _: Int, in _: UICollectionView) -> CGSize { fatalError("size() must be overridden") }
-    open func numberOfIems(at _: Int, in _: UICollectionView) -> Int { fatalError("numberOfItems() must be overridden") }
+    open func size(at row: Int, in _: UICollectionView) -> CGSize { fatalError("size() must be overridden") }
+    open func numberOfIems(at section: Int, in _: UICollectionView) -> Int { fatalError("numberOfItems() must be overridden") }
     open func cell(at indexPath: IndexPath, in _: UICollectionView) -> UICollectionViewCell { fatalError("cell() must be overridden") }
 }
 

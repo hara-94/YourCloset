@@ -2,21 +2,14 @@
 //  Module.swift
 //  UIComponent
 //
-//  Created by 原ひかる on 2020/12/28.
+//  Created by hikaruhara on 2020/12/28.
 //
 
 import UIKit
 
-public protocol Module {
+public protocol Module: UICollectionViewCell {
     associatedtype ContentType
     
+    static func size(at row: Int, in collectionView: UICollectionView) -> CGSize
     func render(_ obj: ContentType?)
-}
-
-public class ModuleCell<ModuleContent>: UICollectionViewCell, Module {
-    public typealias ContentType = ModuleContent
-    
-    public func render(_ obj: ContentType?) {
-        print("render is not overridden")
-    }
 }

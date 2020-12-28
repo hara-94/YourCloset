@@ -59,6 +59,6 @@ extension AppCollectionView: UICollectionViewDataSource {
 extension AppCollectionView: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let controller = sectionController(at: indexPath.section)
-        return controller.size(for: indexPath.section, in: collectionView)
+        return controller.size(at: indexPath.row, in: collectionView)
     }
 }

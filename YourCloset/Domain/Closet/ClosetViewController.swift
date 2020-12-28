@@ -13,7 +13,7 @@ protocol ClosetViewProtocol: AnyObject {
     func remove(with id: String)
 }
 
-final class ClosetViewController: AppBaseViewController, ClosetViewProtocol{
+final class ClosetViewController: AppBaseViewController, ClosetViewProtocol {
     var presenter: ClosetPresenterProtocol!
     
     private let collectionView: AppCollectionView = .init(sections: [])

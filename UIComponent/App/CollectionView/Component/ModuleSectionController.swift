@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class ModuleSectionController<ContentModule>: SectionController where ContentModule: UICollectionViewCell, ContentModule: Module {
+public class ModuleSectionController<ContentModule: Module>: SectionController {
     
     private var items: [ContentModule.ContentType] = []
     
@@ -22,8 +22,8 @@ public class ModuleSectionController<ContentModule>: SectionController where Con
         return cell
     }
     
-    public override func size(for section: Int, in collectionView: UICollectionView) -> CGSize {
-        return .init(width: collectionView.bounds.width, height: 100)
+    public override func size(at row: Int, in collectionView: UICollectionView) -> CGSize {
+        return ContentModule.size(at: row, in: collectionView)
     }
     
     public override func numberOfIems(at section: Int, in _: UICollectionView) -> Int {
@@ -32,14 +32,14 @@ public class ModuleSectionController<ContentModule>: SectionController where Con
 }
 
 extension ModuleSectionController {
-    func dequeueReusableCell(_ moduleCell: ContentModule.Type, at indexPath: IndexPath) -> ModuleCell<ContentModule.ContentType> {
+    func dequeueReusableCell<Cell: Module>(_ moduleCell: Cell.Type, at indexPath: IndexPath) -> Cell {
         let identifier = String(describing: type(of: moduleCell.self))
         if !appCollectionView.registeredCellIdentifiers.contains(identifier) {
             appCollectionView.registeredCellIdentifiers.append(identifier)
         }
         appCollectionView.register(moduleCell, forCellWithReuseIdentifier: identifier)
-        guard let cell = appCollectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? ModuleCell<ContentModule.ContentType> else {
-            fatalError("ModuleCell is not configured properly")
+        guard let cell = appCollectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? Cell else {
+            fatalError()
         }
         return cell
     }
