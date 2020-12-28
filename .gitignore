@@ -8,4 +8,8 @@ Package.resources
 Package.swift
 README.md
 .build/
-YourCloset.xcodeproj/project.xcworkspace/xcuserdata/harahikaru.xcuserdatad/UserInterfaceState.xcuserstate
+*.xcworkspacedata
+*.xcuserstate
+*.xcscheme
+xcschememanagement.plist
+*.xcbkptlist
