@@ -13,6 +13,7 @@ public class AppCollectionView: UICollectionView {
     weak var appCollectionViewDelegate: AppCollectionViewDelegate?
     weak var appCollectionViewDataSource: AppCollectionViewDataSource?
     
+    var registeredCellIdentifiers: [String] = []
     private var sections: [SectionController] = []
     
     init(secitons: [SectionController]) {
@@ -43,7 +44,7 @@ extension AppCollectionView: UICollectionViewDataSource {
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let controller = sectionController(at: indexPath.section)
-        return controller.cell(at: indexPath.row, in: collectionView)
+        return controller.cell(at: indexPath, in: collectionView)
     }
 }
 

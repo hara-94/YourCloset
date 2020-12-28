@@ -22,7 +22,7 @@ open class SectionController {
     
     open func size(for section: Int, in _: UICollectionView) -> CGSize { fatalError("size() must be overridden") }
     open func numberOfIems(at section: Int, in _: UICollectionView) -> Int { fatalError("numberOfItems() must be overridden") }
-    open func cell(at index: Int, in _: UICollectionView) -> UICollectionViewCell { fatalError("cell() must be overridden") }
+    open func cell(at indexPath: IndexPath, in _: UICollectionView) -> UICollectionViewCell { fatalError("cell() must be overridden") }
 }
 
 public extension SectionController {
