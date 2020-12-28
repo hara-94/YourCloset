@@ -13,3 +13,4 @@ README.md
 *.xcscheme
 xcschememanagement.plist
 *.xcbkptlist
+UserInterfaceState.xcuserstate
