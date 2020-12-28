@@ -20,6 +20,8 @@
 		3295318225996FA000901C4A /* SectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3295318125996FA000901C4A /* SectionController.swift */; };
 		329531952599842B00901C4A /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329531942599842B00901C4A /* Module.swift */; };
 		3295319B2599888900901C4A /* ModuleSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3295319A2599888900901C4A /* ModuleSectionController.swift */; };
+		329531AB25999EAA00901C4A /* ClosetModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329531AA25999EAA00901C4A /* ClosetModule.swift */; };
+		329531B625999EE600901C4A /* ClosetSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329531B525999EE600901C4A /* ClosetSectionController.swift */; };
 		39F1E8ACE053FBE86BD5C4F1 /* ClosetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E21868336E2EE17FB070BB /* ClosetPresenter.swift */; };
 		57DA38842B62EAD540BE74FD /* Util.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D096F263469D59EB07C76FD9 /* Util.framework */; };
 		57DE25F616AA31C847129945 /* UIComponent.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BC0A249C19A8C017455B83A4 /* UIComponent.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -85,6 +87,8 @@
 		3295318125996FA000901C4A /* SectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionController.swift; sourceTree = "<group>"; };
 		329531942599842B00901C4A /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		3295319A2599888900901C4A /* ModuleSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleSectionController.swift; sourceTree = "<group>"; };
+		329531AA25999EAA00901C4A /* ClosetModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetModule.swift; sourceTree = "<group>"; };
+		329531B525999EE600901C4A /* ClosetSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetSectionController.swift; sourceTree = "<group>"; };
 		33890B15F693B9F3EE5E129E /* YourClosetUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = YourClosetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37BA01791001B84B17759152 /* UIComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIComponent.h; sourceTree = "<group>"; };
 		64B43F1DCA9A74C6ADADDF8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -175,6 +179,31 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		329531A825999E6900901C4A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				329531B425999ED300901C4A /* SectionController */,
+				329531A925999E8000901C4A /* Module */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		329531A925999E8000901C4A /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				329531AA25999EAA00901C4A /* ClosetModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		329531B425999ED300901C4A /* SectionController */ = {
+			isa = PBXGroup;
+			children = (
+				329531B525999EE600901C4A /* ClosetSectionController.swift */,
+			);
+			path = SectionController;
+			sourceTree = "<group>";
+		};
 		3738F3D3B8B9A451102B51AF /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				3295315F2598B46C00901C4A /* App */,
+				329531A825999E6900901C4A /* View */,
 				0E07110F823DB991D5985DB0 /* Info.plist */,
 				37BA01791001B84B17759152 /* UIComponent.h */,
 				32953156259860A900901C4A /* AppBaseViewController.swift */,
@@ -236,12 +266,12 @@
 		C5B1A87323169267FB795AC7 /* YourCloset */ = {
 			isa = PBXGroup;
 			children = (
+				79BB5DA92ED6C4CDFD44652C /* Domain */,
 				F0F55FCF05F6107D9CA6D0C2 /* AppDelegate.swift */,
+				E946316229C38544B5D40203 /* SceneDelegate.swift */,
 				A3A97622A8D7D399577FC636 /* Assets.xcassets */,
 				64B43F1DCA9A74C6ADADDF8C /* Info.plist */,
 				B9411ABA73AEA6A03F67ADB0 /* LaunchScreen.storyboard */,
-				E946316229C38544B5D40203 /* SceneDelegate.swift */,
-				79BB5DA92ED6C4CDFD44652C /* Domain */,
 			);
 			path = YourCloset;
 			sourceTree = "<group>";
@@ -466,7 +496,9 @@
 				3295318225996FA000901C4A /* SectionController.swift in Sources */,
 				329531722598B57E00901C4A /* AppCollectionViewDataSource.swift in Sources */,
 				329531622598B4B400901C4A /* AppCollectionView.swift in Sources */,
+				329531AB25999EAA00901C4A /* ClosetModule.swift in Sources */,
 				32953157259860A900901C4A /* AppBaseViewController.swift in Sources */,
+				329531B625999EE600901C4A /* ClosetSectionController.swift in Sources */,
 				329531952599842B00901C4A /* Module.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

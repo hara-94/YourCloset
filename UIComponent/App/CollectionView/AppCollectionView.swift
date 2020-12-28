@@ -14,15 +14,23 @@ public class AppCollectionView: UICollectionView {
     weak var appCollectionViewDataSource: AppCollectionViewDataSource?
     
     var registeredCellIdentifiers: [String] = []
-    private var sections: [SectionController] = []
+    private var sections: [SectionController]
     
-    init(secitons: [SectionController]) {
-        super.init(frame: .zero, collectionViewLayout: .init())
-        
+    public init(sections: [SectionController]) {
+        self.sections = sections
+        super.init(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        backgroundColor = .white
+        delegate = self
+        dataSource = self
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func addSection(_ section: SectionController) {
+        sections.append(section)
+        reloadData()
     }
     
     public func sectionController(at index: Int) -> SectionController {
@@ -39,7 +47,7 @@ extension AppCollectionView: UICollectionViewDataSource {
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let controller = sectionController(at: section)
-        return controller.numberOfIems(at: section, in : collectionView)
+        return controller.numberOfIems(at: section, in: collectionView)
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

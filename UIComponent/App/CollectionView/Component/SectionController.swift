@@ -15,13 +15,13 @@ open class SectionController {
     public var itemSpacing: CGFloat = 0
     public var insets: UIEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 0)
     
-    init(appCollectionView: AppCollectionView, layoutType: LayoutType = .default) {
+    public init(appCollectionView: AppCollectionView, layoutType: LayoutType = .default) {
         self.appCollectionView = appCollectionView
         layoutType.setup(itemSpacing: &itemSpacing, insets: &insets)
     }
     
-    open func size(for section: Int, in _: UICollectionView) -> CGSize { fatalError("size() must be overridden") }
-    open func numberOfIems(at section: Int, in _: UICollectionView) -> Int { fatalError("numberOfItems() must be overridden") }
+    open func size(for _: Int, in _: UICollectionView) -> CGSize { fatalError("size() must be overridden") }
+    open func numberOfIems(at _: Int, in _: UICollectionView) -> Int { fatalError("numberOfItems() must be overridden") }
     open func cell(at indexPath: IndexPath, in _: UICollectionView) -> UICollectionViewCell { fatalError("cell() must be overridden") }
 }
 
