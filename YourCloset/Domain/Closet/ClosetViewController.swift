@@ -23,7 +23,7 @@ final class ClosetViewController: AppBaseViewController, ClosetViewProtocol {
         
         presenter.process(event: .didLoad)
         
-        let section1: ClosetSectionController = .init(items: ["aaa", "bbb", "ccc", "ddd", "eee"], appCollectionView: collectionView)
+        let section1: ClosetSectionController = .init(items: ["aaa", "bbb", "ccc", "ddd"], appCollectionView: collectionView)
         collectionView.addSection(section1)
         view.addSubviews([collectionView]).activateAutolayout()
         Layout.activateLayouts([
