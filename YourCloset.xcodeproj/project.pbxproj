@@ -32,6 +32,7 @@
 		AF54C25BB215AF6AAF889446 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D4A643BD08AA89CD90B77F /* UIView+.swift */; };
 		B9BE81A9F30419FA529D42BD /* UIComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 37BA01791001B84B17759152 /* UIComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C05BA6E816EE7AF060B2075E /* AppCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B8795603B54F0548E92DD5 /* AppCollectionViewDelegate.swift */; };
+		C7D34081259CBFD8006FF3C5 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D34080259CBFD8006FF3C5 /* UseCase.swift */; };
 		D0E8BED9FDBE08B97C3900B4 /* Infra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8814E3DC4B6702421506A560 /* Infra.framework */; };
 		EE0717DC95EFB07066D055B8 /* UIComponent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0A249C19A8C017455B83A4 /* UIComponent.framework */; };
 		F7F5B101352EA3E227DA2266 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946316229C38544B5D40203 /* SceneDelegate.swift */; };
@@ -97,7 +98,7 @@
 		06B8795603B54F0548E92DD5 /* AppCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		0BC806837FD9DCD1A4B75AE3 /* ClosetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetViewController.swift; sourceTree = "<group>"; };
 		0E07110F823DB991D5985DB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		135734CF8501A36DC614D4CF /* YourCloset.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = YourCloset.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		135734CF8501A36DC614D4CF /* YourCloset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourCloset.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CAB28DB6D229F6303557978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		33890B15F693B9F3EE5E129E /* YourClosetUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = YourClosetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37BA01791001B84B17759152 /* UIComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIComponent.h; sourceTree = "<group>"; };
@@ -119,6 +120,7 @@
 		BD55B1E8911E7C81F58B7DC3 /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		BE656A3C3F0B275328054B5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C0C5016AED02079015C5DBC8 /* AppCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		C7D34080259CBFD8006FF3C5 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		D096F263469D59EB07C76FD9 /* Util.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Util.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B13EC9FCA5BF45917004BF /* ClosetRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetRouter.swift; sourceTree = "<group>"; };
 		E4BA2CCBE4A495593E202B9D /* YourClosetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourClosetUITests.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 		B0AB6CEBDBC0641ED50EC6B6 /* Infra */ = {
 			isa = PBXGroup;
 			children = (
+				C7D3407F259CBF1F006FF3C5 /* UseCase */,
 				FE429E5FD004BB197DBB3AD9 /* Info.plist */,
 				6F29B22D389A7FA15CB11B39 /* Infra.h */,
 			);
@@ -285,6 +288,14 @@
 				79BB5DA92ED6C4CDFD44652C /* Domain */,
 			);
 			path = YourCloset;
+			sourceTree = "<group>";
+		};
+		C7D3407F259CBF1F006FF3C5 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				C7D34080259CBFD8006FF3C5 /* UseCase.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 		DD5D3374CD2ED2039BAF12DF = {
@@ -450,6 +461,9 @@
 			attributes = {
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
+					BF04C726113CD99D2A09AF6D = {
+						LastSwiftMigration = 1220;
+					};
 				};
 			};
 			buildConfigurationList = 8E2B2C048FD90A6D2D75647D /* Build configuration list for PBXProject "YourCloset" */;
@@ -528,6 +542,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7D34081259CBFD8006FF3C5 /* UseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,6 +628,7 @@
 		08B3F166C4A79062AF09AAC6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -628,6 +644,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = hikaru.hara.Infra;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -675,6 +692,7 @@
 		586BA963790B92C9057FA1CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = YourCloset/Info.plist;
@@ -802,6 +820,7 @@
 		9C3C81188CCF65F227549FD6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -817,6 +836,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = hikaru.hara.Infra;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -927,6 +948,7 @@
 		DF60696A76DD4324596A3BEA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = YourCloset/Info.plist;
