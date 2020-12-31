@@ -1,13 +1,14 @@
 //
-//  ClosetUseCase.swift
-//  Infra
+//  ClosetInteractor.swift
+//  YourCloset
 //
 //  Created by hikaruhara on 2020/12/31.
 //
 
-import Foundation
+import Infra
+import UIKit
 
-public final class ClosetUseCase: UseCaseProtocol {
+final class ClosetInteractor: UseCaseProtocol {
     public typealias Parameter = Void
     
     public typealias Success = Void
@@ -15,6 +16,6 @@ public final class ClosetUseCase: UseCaseProtocol {
     public typealias Failure = Error
     
     public func execute(parameter: Parameter, reuslt: ((Result<Success, Failure>) -> ())?) {
-        print("ClosetUseCase: execute")
+        print("\(String(describing: type(of: self))): execute")
     }
 }

@@ -5,6 +5,7 @@
 //  Created by 原ひかる on 2020/12/26.
 //
 
+import Infra
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -20,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
         let viewController = ClosetViewController()
-        viewController.presenter = ClosetPresenter(view: viewController, router: ClosetRouter(view: viewController))
+        viewController.presenter = ClosetPresenter(view: viewController, router: ClosetRouter(view: viewController), interactor: UseCase(.init(ClosetInteractor())))
         window.rootViewController = UINavigationController(rootViewController: viewController)
         window.makeKeyAndVisible()
     }

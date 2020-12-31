@@ -5,6 +5,7 @@
 //  Created by 原ひかる on 2020/12/27.
 //
 
+import Infra
 import UIKit
 
 protocol ClosetPresenterProtocol: AnyObject {
@@ -14,10 +15,12 @@ protocol ClosetPresenterProtocol: AnyObject {
 final class ClosetPresenter: ClosetPresenterProtocol {
     weak var view: ClosetViewProtocol!
     var router: ClosetRouterProtocol!
+    private let interactor: UseCase<Void, Void, Error>
     
-    init(view: ClosetViewProtocol, router: ClosetRouterProtocol) {
+    init(view: ClosetViewProtocol, router: ClosetRouterProtocol, interactor: UseCase<Void, Void, Error>) {
         self.view = view
         self.router = router
+        self.interactor = interactor
     }
     
     func process(event: ClosetPresenterOperation.Event) {
