@@ -20,8 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         self.window = window
-        let viewController = ClosetViewController()
-        viewController.presenter = ClosetPresenter(view: viewController, router: ClosetRouter(view: viewController), interactor: UseCase(.init(ClosetInteractor())))
+        let viewController = ClosetRouter.assemble()
         window.rootViewController = UINavigationController(rootViewController: viewController)
         window.makeKeyAndVisible()
     }
