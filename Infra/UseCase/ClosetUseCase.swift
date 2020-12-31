@@ -14,7 +14,7 @@ public final class ClosetUseCase: UseCaseProtocol {
     
     public typealias Failure = Error
     
-    public func execute(parameter: Parameter, reuslt: Result<Success, Failure>) {
+    public func execute(parameter: Parameter, reuslt: ((Result<Success, Failure>) -> ())?) {
         print("ClosetUseCase: execute")
     }
 }
