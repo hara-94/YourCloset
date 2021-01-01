@@ -5,6 +5,14 @@ options:
   deploymentTarget:
     iOS: 13.0
   xcodeVersion: "12.2"
+settings:
+  configs:
+    debug:
+      CODE_SIGN_IDENTITY: iPhone Developer
+      DEVELOPMENT_TEAM: R6FXVG8497
+    release:
+      CODE_SIGN_IDENTITY: iPhone Distribution
+      DEVELOPMENT_TEAM: R6FXVG8497
 targets:
   YourCloset:
     type: application
