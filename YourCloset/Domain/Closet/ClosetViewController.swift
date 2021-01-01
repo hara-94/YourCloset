@@ -14,7 +14,7 @@ protocol ClosetViewProtocol: ClosetBaseViewController {
     func remove(with id: String)
 }
 
-final class ClosetViewController: ClosetBaseViewController {
+final class ClosetViewController: ClosetBaseViewController, ClosetViewProtocol {
     var presenter: ClosetPresenterProtocol!
     
     private let collectionView: AppCollectionView = .init(sections: [])
@@ -39,7 +39,7 @@ final class ClosetViewController: ClosetBaseViewController {
     }
 }
 
-class ClosetBaseViewController: ScreenBaseViewController<ClosetDependency>, ClosetViewProtocol {
+class ClosetBaseViewController: ScreenBaseViewController<ClosetDependency> {
     func remove(with id: String) {
         
     }

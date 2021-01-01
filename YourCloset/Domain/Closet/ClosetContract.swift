@@ -11,3 +11,12 @@ import Foundation
 struct ClosetDependency: DependencyProtocol {
     typealias ViewModel = ClosetViewModel
 }
+
+final class ClosetViewModel: ViewModelProtocol {
+    var items: [ClosetItem]
+    
+    init(items: [ClosetItem]) {
+        self.items = items
+    }
+}
+
