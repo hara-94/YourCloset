@@ -18,7 +18,8 @@ public class AppCollectionView: UICollectionView {
     
     public init(sections: [SectionController]) {
         self.sections = sections
-        super.init(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        let layout: UICollectionViewFlowLayout = .init()
+        super.init(frame: .zero, collectionViewLayout: layout)
         backgroundColor = .white
         delegate = self
         dataSource = self
@@ -59,6 +60,21 @@ extension AppCollectionView: UICollectionViewDataSource {
 extension AppCollectionView: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let controller = sectionController(at: indexPath.section)
-        return controller.size(at: indexPath.row, in: collectionView)
+        return controller.size(at: indexPath.row, in: collectionView.bounds.width - (controller.insets.left + controller.insets.right))
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let controller = sectionController(at: section)
+        return controller.insets
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        let controller = sectionController(at: section)
+        return controller.lineSpacing
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        let controller = sectionController(at: section)
+        return controller.itemSpacing
     }
 }

@@ -11,9 +11,9 @@ public class ModuleSectionController<ContentModule: Module>: SectionController {
     
     private var items: [ContentModule.ContentType] = []
     
-    public init(items: [ContentModule.ContentType], appCollectionView: AppCollectionView, layoutType: SectionController.LayoutType = .default) {
+    public init(items: [ContentModule.ContentType], appCollectionView: AppCollectionView) {
         self.items = items
-        super.init(appCollectionView: appCollectionView, layoutType: layoutType)
+        super.init(appCollectionView: appCollectionView)
     }
     
     public override func cell(at indexPath: IndexPath, in _: UICollectionView) -> UICollectionViewCell {
@@ -22,8 +22,8 @@ public class ModuleSectionController<ContentModule: Module>: SectionController {
         return cell
     }
     
-    public override func size(at row: Int, in collectionView: UICollectionView) -> CGSize {
-        return ContentModule.size(at: row, in: collectionView)
+    public override func size(at row: Int, in width: CGFloat) -> CGSize {
+        return ContentModule.size(at: row, in: width)
     }
     
     public override func numberOfIems(at section: Int, in _: UICollectionView) -> Int {

@@ -38,6 +38,7 @@ final class ClosetPresenter: ClosetPresenterProtocol {
                 case let .failure(error):
                     switch error {
                     case let .zero(count):
+                        //TODO:
                         print("errorCount: \(count)")
                     }
                 }

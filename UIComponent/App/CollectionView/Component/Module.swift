@@ -10,6 +10,6 @@ import UIKit
 public protocol Module: UICollectionViewCell {
     associatedtype ContentType
     
-    static func size(at row: Int, in collectionView: UICollectionView) -> CGSize
+    static func size(at row: Int, in width: CGFloat) -> CGSize
     func render(_ obj: ContentType?)
 }

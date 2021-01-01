@@ -33,7 +33,6 @@ final class ClosetViewController: ClosetBaseViewController {
         super.update(viewModel: viewModel)
         guard let viewModel = viewModel else { return }
         let items = viewModel.items
-        viewModel.items.forEach { print($0.name) }
         let section: ClosetSectionController = .init(items: items, appCollectionView: collectionView)
         collectionView.addSection(section)
         collectionView.reloadData()
