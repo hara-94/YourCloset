@@ -23,6 +23,7 @@ targets:
       - target: Util
       - target: UIComponent
       - target: Infra
+      - target: Wireframe
   YourClosetTests:
     type: bundle.unit-test
     platform: iOS
@@ -50,5 +51,12 @@ targets:
     platform: iOS
     sources:
       - Infra
+    dependencies:
+      - target: Util
+  Wireframe:
+    type: framework
+    platform: iOS
+    sources:
+      - Wireframe
     dependencies:
       - target: Util
