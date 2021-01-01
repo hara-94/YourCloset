@@ -8,10 +8,10 @@
 import UIKit
 
 public final class ClosetItem {
-    private let imageUrl: String?
-    private let name: String
-    private let category: String
-    private let colors: [UIColor]
+    public let imageUrl: String?
+    public let name: String
+    public let category: String
+    public let colors: [UIColor]
     
     public init(imageUrl: String?, name: String, category: String, colors: [UIColor]) {
         self.imageUrl = imageUrl

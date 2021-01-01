@@ -10,12 +10,21 @@ import UIKit
 
 final class ClosetInteractor: UseCaseProtocol {
     public typealias Parameter = Void
+    public typealias Success = Int
+    public typealias Failure = ClosetInteractor.DemoError
     
-    public typealias Success = Void
-    
-    public typealias Failure = Error
-    
-    public func execute(parameter: Parameter, reuslt: ((Result<Success, Failure>) -> ())?) {
-        print("\(String(describing: type(of: self))): execute")
+    public func execute(parameter: Parameter, result: ((Result<Success, Failure>) -> ())?) {
+        let int = Int.random(in: 0...10)
+        if int == 0 {
+            result?(.failure(.zero(int)))
+        } else {
+            result?(.success(int))
+        }
+    }
+}
+
+extension ClosetInteractor {
+    enum DemoError: Error {
+        case zero(Int)
     }
 }

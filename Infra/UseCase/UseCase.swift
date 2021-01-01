@@ -12,7 +12,7 @@ public protocol UseCaseProtocol {
     associatedtype Success
     associatedtype Failure: Error
     
-    func execute(parameter: Parameter, reuslt: ((Result<Success, Failure>) -> ())?)
+    func execute(parameter: Parameter, result: ((Result<Success, Failure>) -> ())?)
 }
 
 public class UseCase<Parameter, Success, Failure: Error> {
@@ -24,13 +24,13 @@ public class UseCase<Parameter, Success, Failure: Error> {
         self.instance = instance
     }
     
-    public func execute(parameter: Parameter, reuslt: ((Result<Success, Failure>) -> ())?) {
-        instance.execute(parameter: parameter, reuslt: reuslt)
+    public func execute(parameter: Parameter, result: ((Result<Success, Failure>) -> ())?) {
+        instance.execute(parameter: parameter, result: result)
     }
 }
 
 public class UseCaseInstanceBase<Parameter, Success, Failure: Error> {
-    public func execute(parameter: Parameter, reuslt: ((Result<Success, Failure>) -> ())?) {
+    public func execute(parameter: Parameter, result: ((Result<Success, Failure>) -> ())?) {
         fatalError("execute must be overridden")
     }
 }
@@ -42,7 +42,7 @@ public class UseCaseInstance<T: UseCaseProtocol>: UseCaseInstanceBase<T.Paramete
         self.useCase = useCase
     }
     
-    public override func execute(parameter: T.Parameter, reuslt: ((Result<T.Success, T.Failure>) -> ())?) {
-        useCase.execute(parameter: parameter, reuslt: reuslt)
+    public override func execute(parameter: T.Parameter, result: ((Result<T.Success, T.Failure>) -> ())?) {
+        useCase.execute(parameter: parameter, result: result)
     }
 }
