@@ -7,22 +7,40 @@
 
 import UIKit
 
-public class ModuleSectionController<M>: SectionController where M: UICollectionViewCell, M: Module {
+public class ModuleSectionController<ContentModule: Module>: SectionController {
+    
+    private var items: [ContentModule.ContentType] = []
+    
+    public init(items: [ContentModule.ContentType], appCollectionView: AppCollectionView) {
+        self.items = items
+        super.init(appCollectionView: appCollectionView)
+    }
     
     public override func cell(at indexPath: IndexPath, in _: UICollectionView) -> UICollectionViewCell {
-        let cell = dequeueReusableCell(M.self, at: indexPath)
+        let cell = dequeueReusableCell(ContentModule.self, at: indexPath)
+        cell.render(items[indexPath.row])
         return cell
+    }
+    
+    public override func size(at row: Int, in width: CGFloat) -> CGSize {
+        return ContentModule.size(at: row, in: width)
+    }
+    
+    public override func numberOfIems(at section: Int, in _: UICollectionView) -> Int {
+        return items.count
     }
 }
 
 extension ModuleSectionController {
-    func dequeueReusableCell(_ moduleCell: M.Type, at indexPath: IndexPath) -> UICollectionViewCell {
+    func dequeueReusableCell<Cell: Module>(_ moduleCell: Cell.Type, at indexPath: IndexPath) -> Cell {
         let identifier = String(describing: type(of: moduleCell.self))
         if !appCollectionView.registeredCellIdentifiers.contains(identifier) {
             appCollectionView.registeredCellIdentifiers.append(identifier)
         }
         appCollectionView.register(moduleCell, forCellWithReuseIdentifier: identifier)
-        let cell = appCollectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+        guard let cell = appCollectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? Cell else {
+            fatalError()
+        }
         return cell
     }
 }
