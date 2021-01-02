@@ -18,14 +18,25 @@ final class ClosetViewController: ClosetBaseViewController, ClosetViewProtocol {
     var presenter: ClosetPresenterProtocol!
     
     private let collectionView: AppCollectionView = .init(sections: [])
+    private let tabbar: AppTabBar = .init()
     
     override func loadView() {
         super.loadView()
         
         presenter.process(event: .didLoad)
-        view.addSubviews([collectionView]).activateAutolayout()
+        view.addSubviews([collectionView, tabbar]).activateAutolayout()
         Layout.activateLayouts([
-            collectionView.layout.top().bottom().left().right()
+            collectionView.layout.top().bottom().left().right(),
+            
+        ])
+        print("safearea: \(view.safeAreaInsets)")
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        Layout.activateLayouts([
+            tabbar.layout.left(constant: 5).right(constant: 5).bottom(constant: view.safeAreaInsets.bottom)
         ])
     }
     
