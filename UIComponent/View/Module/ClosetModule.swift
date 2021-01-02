@@ -53,6 +53,13 @@ public class ClosetModule: UICollectionViewCell, Module {
         fatalError("init(coder:) has not been implemented")
     }
     
+    public override func prepareForReuse() {
+        super.prepareForReuse()
+        nameLabel.text = nil
+        categoryLabel.text = nil
+        colorsStackView.subviews.forEach { colorsStackView.removeArrangedSubview($0) }
+    }
+    
     public static func size(at row: Int, in width: CGFloat) -> CGSize {
         let _width = (width - 8) / 2
         return Self.expectedContentSize.scaleToFit(_width)
