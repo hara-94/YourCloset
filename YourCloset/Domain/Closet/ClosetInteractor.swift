@@ -18,7 +18,7 @@ final class ClosetInteractor: UseCaseProtocol {
         if int == 0 {
             result?(.failure(.zero(int)))
         } else {
-            result?(.success(int))
+            result?(.success(int * 2))
         }
     }
 }
