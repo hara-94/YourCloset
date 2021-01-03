@@ -17,9 +17,28 @@ public final class ScrollController: UIViewController {
         return view
     }()
     
-    private let contentView: UIView = .init()
+    private let pageViewController: UIPageViewController = .init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     
-    private var items: [String] = ["item1", "item2", "item3", "item4", "item5", "item6", "item7"]
+    private var viewControllers: [ScrollableController] = []
+    private var items: [String?] = []
+    
+    weak var scrollControllerDelegate: ScrollControllerDelegate?
+    weak var scrollControllerDataSource: ScrollConstrollerDataSource?
+    
+    public convenience init(viewControllers: [ScrollableController]) {
+        self.init(nibName: nil, bundle: nil)
+        self.viewControllers = viewControllers
+        items = viewControllers.map { $0.scrollName }
+        pageViewController.setViewControllers([self.viewControllers[0]], direction: .forward, animated: true, completion: nil)
+    }
+    
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     public override func loadView() {
         super.loadView()
@@ -28,15 +47,31 @@ public final class ScrollController: UIViewController {
     
     private func setup() {
         edgesForExtendedLayout = []
-        contentView.backgroundColor = .red
+        pageViewController.dataSource = self
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(Item.self, forCellWithReuseIdentifier: "cell")
-        view.addSubviews([collectionView, contentView]).activateAutolayout()
+        view.addSubviews([collectionView, pageViewController.view]).activateAutolayout()
         Layout.activateLayouts([
-            collectionView.layout.top().left().right().height(Item.itemHeight).put(contentView).under(0),
-            contentView.layout.bottom().left().right()
+            collectionView.layout.top().left().right().height(Item.itemHeight).put(pageViewController.view).under(0),
+            pageViewController.view.layout.bottom().left().right()
         ])
+    }
+}
+
+extension ScrollController: UIPageViewControllerDelegate { }
+
+extension ScrollController: UIPageViewControllerDataSource {
+    public func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        return viewControllers.count
+    }
+    
+    public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        return scrollControllerDataSource?.before(viewController, in: pageViewController)
+    }
+    
+    public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        return scrollControllerDataSource?.after(viewController, in: pageViewController)
     }
 }
 
@@ -44,7 +79,6 @@ extension ScrollController: UICollectionViewDelegate { }
 
 extension ScrollController: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(items.count)
         return items.count
     }
     
@@ -60,6 +94,6 @@ extension ScrollController: UICollectionViewDataSource {
 extension ScrollController: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //TODO: fontを別に設定している
-        return .init(width: items[indexPath.item].width(in: .systemFont(ofSize: 14)) + 10, height: Item.itemHeight)
+        return .init(width: items[indexPath.item]?.width(in: .systemFont(ofSize: 14)) ?? 0 + 10, height: Item.itemHeight)
     }
 }

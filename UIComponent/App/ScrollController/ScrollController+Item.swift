@@ -37,7 +37,7 @@ public extension ScrollController {
             titleLabel.layout.centerX().centerY().activate()
         }
         
-        public func set(title: String) {
+        public func set(title: String?) {
             titleLabel.text = title
         }
     }
