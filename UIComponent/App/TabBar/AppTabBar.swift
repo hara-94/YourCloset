@@ -1,5 +1,5 @@
 //
-//  AppTabBarController.swift
+//  AppTabBar.swift
 //  UIComponent
 //
 //  Created by hikaruhara on 2021/01/02.

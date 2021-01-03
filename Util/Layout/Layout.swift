@@ -96,6 +96,10 @@ public final class Layout {
         return self
     }
     
+    public func fill() {
+        top().bottom().left().right().activate()
+    }
+    
     public func put(_ view: UIView) -> Self {
         nextView = view
         return self

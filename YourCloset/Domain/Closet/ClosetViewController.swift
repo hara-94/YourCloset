@@ -27,9 +27,13 @@ final class ClosetViewController: ClosetBaseViewController, ClosetViewProtocol {
         view.addSubviews([collectionView, tabbar]).activateAutolayout()
         Layout.activateLayouts([
             collectionView.layout.top().bottom().left().right(),
-            
+
         ])
-        print("safearea: \(view.safeAreaInsets)")
+        view.addSubviews([tabbar]).activateAutolayout()
+        //TODO:
+        navigationController?.navigationBar.shadowImage = UIImage()
+        //TODO:
+        self.title = "クローゼット"
     }
     
     override func viewDidLayoutSubviews() {
