@@ -31,7 +31,6 @@ final class ClosetViewController: ClosetBaseViewController, ClosetViewProtocol {
         navigationController?.navigationBar.shadowImage = UIImage()
         //TODO:
         self.title = "クローゼット"
-        tabBarItem = .init(tabBarSystemItem: .more, tag: 1)
     }
     
     override func update(viewModel: ClosetViewModel?) {
