@@ -45,9 +45,7 @@ final class ClosetViewController: ClosetBaseViewController, ClosetViewProtocol {
 }
 
 extension ClosetViewController {
-    func remove(with id: String) {
-        
-    }
+    func remove(with id: String) {}
 }
 
 class ClosetBaseViewController: ScreenBaseViewController<ClosetDependency> {}

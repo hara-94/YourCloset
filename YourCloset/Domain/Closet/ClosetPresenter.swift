@@ -55,6 +55,7 @@ final class ClosetPresenterOperation {
     enum Event {
         case didLoad
         case transition(String)
+        //TODO: navigationで編集モードにする
         case remove(String)
     }
 }
