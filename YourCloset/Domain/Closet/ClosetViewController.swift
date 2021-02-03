@@ -29,8 +29,6 @@ final class ClosetViewController: ClosetBaseViewController, ClosetViewProtocol {
         ])
         //TODO:
         navigationController?.navigationBar.shadowImage = UIImage()
-        //TODO:
-        self.title = "クローゼット"
     }
     
     override func update(viewModel: ClosetViewModel?) {
@@ -47,4 +45,13 @@ extension ClosetViewController {
     func remove(with id: String) {}
 }
 
-class ClosetBaseViewController: ScreenBaseViewController<ClosetDependency> {}
+class ClosetBaseViewController: ScreenBaseViewController<ClosetDependency> {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.title = "クローゼット"
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
