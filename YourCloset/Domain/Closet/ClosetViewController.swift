@@ -27,7 +27,7 @@ final class ClosetViewController: ClosetBaseViewController, ClosetViewProtocol {
         Layout.activateLayouts([
             collectionView.layout.top().bottom().left().right(),
         ])
-        //TODO:
+        //TODO: 下にscrollつける用
         navigationController?.navigationBar.shadowImage = UIImage()
     }
     
