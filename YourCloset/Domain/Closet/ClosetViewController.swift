@@ -18,30 +18,20 @@ final class ClosetViewController: ClosetBaseViewController, ClosetViewProtocol {
     var presenter: ClosetPresenterProtocol!
     
     private let collectionView: AppCollectionView = .init(sections: [])
-    private let tabbar: AppTabBar = .init()
     
     override func loadView() {
         super.loadView()
         
         presenter.process(event: .didLoad)
-        view.addSubviews([collectionView, tabbar]).activateAutolayout()
+        view.addSubviews([collectionView]).activateAutolayout()
         Layout.activateLayouts([
             collectionView.layout.top().bottom().left().right(),
-
         ])
-        view.addSubviews([tabbar]).activateAutolayout()
         //TODO:
         navigationController?.navigationBar.shadowImage = UIImage()
         //TODO:
         self.title = "クローゼット"
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        Layout.activateLayouts([
-            tabbar.layout.left(constant: 5).right(constant: 5).bottom(constant: view.safeAreaInsets.bottom)
-        ])
+        tabBarItem = .init(tabBarSystemItem: .more, tag: 1)
     }
     
     override func update(viewModel: ClosetViewModel?) {
