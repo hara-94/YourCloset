@@ -40,6 +40,12 @@ public final class Layout {
         return self
     }
     
+    public func center() -> Self {
+        guard let view = view else { return self }
+        view.layout.centerX().centerY().activate()
+        return self
+    }
+    
     public func width(_ value: CGFloat) -> Self {
         guard let view = view else { return self }
         let constraint: NSLayoutConstraint = .init(item: view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: value)
@@ -65,6 +71,12 @@ public final class Layout {
         guard let view = view else { return self }
         let constraint: NSLayoutConstraint = .init(item: view, attribute: .height, relatedBy: .equal, toItem: other ?? view.superview, attribute: .height, multiplier: multiplier, constant: constant)
         constraints.append(constraint)
+        return self
+    }
+    
+    public func size(_ width: CGFloat, _ height: CGFloat) -> Self {
+        guard let view = view else { return self }
+        view.layout.width(width).height(height).activate()
         return self
     }
     

@@ -17,6 +17,7 @@ final class RegisterViewController: RegisterBaseViewController, RegisterViewProt
     
     private let imageView: UIImageView = .init()
     private let expectedImageViewRatio: CGSize = .init(width: 167, height: 237)
+    private let circleView: UIView = .init()
     private let iconView: UIImageView = .init()
     private let stackView: UIStackView = {
         let view: UIStackView = .init()
@@ -26,6 +27,16 @@ final class RegisterViewController: RegisterBaseViewController, RegisterViewProt
     }()
     private let itemTextField: TextField = .init()
     private let catTextField: TextField = .init()
+    private lazy var registerButton: UIButton = {
+        let btn: UIButton = .init()
+        btn.setTitle("登録", for: .normal)
+        btn.setTitleColor(UIColor(red: 1/255, green: 76/255, blue: 134/255, alpha: 1), for: .normal)
+        btn.titleLabel?.font = .boldSystemFont(ofSize: 16)
+        btn.layer.borderWidth = 2
+        btn.layer.borderColor = UIColor(red: 1/255, green: 76/255, blue: 134/255, alpha: 1).cgColor
+        btn.addTarget(self, action: #selector(register(_:)), for: .touchUpInside)
+        return btn
+    }()
     
     override func loadView() {
         super.loadView()
@@ -33,6 +44,11 @@ final class RegisterViewController: RegisterBaseViewController, RegisterViewProt
     }
     
     private func setup() {
+        iconView.image = UIImage(named: "camera")
+        circleView.backgroundColor = .init(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
+        circleView.layer.cornerRadius = 12
+        registerButton.layer.cornerRadius = 20
+        
         itemTextField.render("アイテム")
         catTextField.render("カテゴリー")
         
@@ -40,14 +56,23 @@ final class RegisterViewController: RegisterBaseViewController, RegisterViewProt
         imageView.backgroundColor = .black
         let imageViewSize = expectedImageViewRatio.scaleToFit(view.frame.width * 0.45)
         stackView.addArrangedSubviews([itemTextField, catTextField]).activateAutolayout()
-        view.addSubviews([imageView, stackView]).activateAutolayout()
+        circleView.addSubviews([iconView]).activateAutolayout()
+        view.addSubviews([imageView, circleView, stackView, registerButton]).activateAutolayout()
         Layout.activateLayouts([
             imageView.layout.top(constant: 24).left(constant: 16).width(imageViewSize.width).height(imageViewSize.height)
-                .put(stackView).toRight(20),
+                .put(stackView).toRight(20)
+                .put(registerButton).under(43),
+            circleView.layout.size(24, 24).bottom(to: imageView, constant: 24).right(to: imageView, constant: -12),
+            iconView.layout.size(16, 16).center(),
             stackView.layout.top(constant: 26).right(constant: 16),
             itemTextField.layout.top().left().right(),
             catTextField.layout.bottom().left().right(),
+            registerButton.layout.size(202, 40).centerX()
         ])
+    }
+    
+    @objc private func register(_: UIButton) {
+        print("register")
     }
 }
 
