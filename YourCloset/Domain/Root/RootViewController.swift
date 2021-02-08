@@ -10,7 +10,10 @@ import UIKit
 class RootViewController: UITabBarController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        let controllers = viewControllers().map { UINavigationController(rootViewController: $0) }
+        let controllers = viewControllers().map { controller -> UIViewController in
+            let ctr = UINavigationController(rootViewController: controller)
+            return ctr
+        }
         setViewControllers(controllers, animated: false)
     }
     

@@ -29,6 +29,7 @@ final class ClosetViewController: ClosetBaseViewController, ClosetViewProtocol {
         ])
         //TODO: 下にscrollつける用
         navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = false
     }
     
     override func update(viewModel: ClosetViewModel?) {
